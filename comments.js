@@ -1,17 +1,96 @@
 // create web server
-var express = require('express');
-var app = express();
-var fs = require('fs');
+const express = require('express');
+const app = express();
 
-// create a route
-app.get('/comments', function(req, res) {
-  fs.readFile('comments.json', function(err, data) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(data);
-  });
+// create route
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-// start server
-app.listen(3000, function() {
-  console.log('Server running on http://localhost:3000');
+// create route
+app.get('/api/comments', (req, res) => {
+  res.send('Comments');
 });
+
+// create route
+app.get('/api/comments/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
+// create route
+app.post('/api/comments', (req, res) => {
+  res.send('Comment is created.');
+});
+
+// create route
+app.put('/api/comments/:id', (req, res) => {
+  res.send('Comment is updated.');
+});
+
+// create route
+app.delete('/api/comments/:id', (req, res) => {
+  res.send('Comment is deleted.');
+});
+
+// create route
+app.get('/api/posts', (req, res) => {
+  res.send('Posts');
+});
+
+// create route
+app.get('/api/posts/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
+// create route
+app.post('/api/posts', (req, res) => {
+  res.send('Post is created.');
+});
+
+// create route
+app.put('/api/posts/:id', (req, res) => {
+  res.send('Post is updated.');
+});
+
+// create route
+app.delete('/api/posts/:id', (req, res) => {
+  res.send('Post is deleted.');
+});
+
+// create route
+app.get('/api/categories', (req, res) => {
+  res.send('Categories');
+});
+
+// create route
+app.get('/api/categories/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
+// create route
+app.post('/api/categories', (req, res) => {
+  res.send('Category is created.');
+});
+
+// create route
+app.put('/api/categories/:id', (req, res) => {
+  res.send('Category is updated.');
+});
+
+// create route
+app.delete('/api/categories/:id', (req, res) => {
+  res.send('Category is deleted.');
+});
+
+// create route
+app.get('/api/tags', (req, res) => {
+  res.send('Tags');
+});
+
+// create route
+app.get('/api/tags/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
+// create route
+app.post('/api/tags', (req, res)
